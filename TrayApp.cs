@@ -185,6 +185,11 @@ public class TrayApp : ApplicationContext
         fill.Dispose();
         outline.Dispose();
         wavePen.Dispose();
+        // bela obroba
+        using var whiteOutline = new Pen(Color.White, 1f);
+        var cone2 = new Point[] { new(9, 11), new(18, 5), new(18, 27), new(9, 21) };
+        g.DrawRectangle(whiteOutline, 4, 12, 4, 8);
+        g.DrawPolygon(whiteOutline, cone2);
         return Icon.FromHandle(bmp.GetHicon());
     }
 
@@ -222,6 +227,11 @@ public class TrayApp : ApplicationContext
 
         arcPen.Dispose();
         outlinePen.Dispose();
+        // bela obroba
+        using var whiteOutline = new Pen(Color.White, 1f);
+        g.DrawArc(whiteOutline, 6, 4, 18, 14, 180, 180);
+        g.DrawRoundedRectangle(whiteOutline, 4, 17, 6, 8, 2);
+        g.DrawRoundedRectangle(whiteOutline, 22, 17, 6, 8, 2);        
         return Icon.FromHandle(bmp.GetHicon());
     }
 
